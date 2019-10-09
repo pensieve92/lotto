@@ -1,0 +1,39 @@
+@import '../../styles/open-color.css';
+
+.header {
+    background: var(--oc-blue-5);    
+}
+
+.header .header-content{
+    height: 5rem;
+    width: 1400px;
+    margin: 0 auto;
+    padding-left: 3rem;
+    padding-right: 3rem;
+
+    /* 내부 아이템 세로 가운데 정렬 */
+    display: flex;
+    align-items: center;
+
+    /* 반응형 */
+
+
+}
+
+.header .header-content .brand .logo{
+     /* 로고 */
+    color: white;    
+    width: auto;
+    height: auto;    
+    /* max-width: 100px; */
+    max-height: 100px;
+}
+
+.header .header-content .header .middle {
+    /* 가운데 내용 */
+}
+
+.header .right {
+    /* 오른쪽 내용 */
+    margin-left: auto;
+}
