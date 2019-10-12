@@ -1,6 +1,18 @@
 .right {
-    border: 1px solid var(--oc-grape-7);
+    /* border: 1px solid var(--oc-grape-7); */
     width: 40%;
     height: 100vh;
     margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.right .lotto2 {
+    margin-left: 2rem;
+    margin-right: 2rem;    
+}
+
+img {
+    max-width: 100%;
+    width: auto;
 }

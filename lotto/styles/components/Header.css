@@ -1,6 +1,0 @@
-@import '../../styles/open-color.css';
-
-.header {
-    background: var(--oc-blue-5);    
-    height: 5rem;
-}

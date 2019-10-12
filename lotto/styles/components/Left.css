@@ -1,6 +1,117 @@
 .left {
-    border: 1px solid var(--oc-grape-7);
+    /* border: 1px solid var(--oc-grape-7); */
     height: 100vh;
     width: 60%;
 }
 
+.left .header {
+    /* border: 1px solid var(--oc-grape-7); */
+    background: var(--oc-blue-5);
+    height: 9rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+}
+
+.left .header .header1 {
+    /* border: 1px solid var(--oc-grape-7); */
+    background: white;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+}
+
+.left .header .header1 .logo {
+    /* border: 1px solid var(--oc-grape-7); */
+    height: 4rem;
+}
+
+.left .header .header1 .logo img {
+    height: 4rem;
+    max-width: 100%;
+    width: auto; 
+}
+
+.left .header .header1 .banAuto {
+    /* border: 1px solid var(--oc-grape-7); */
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.left .header .header1 .banAuto .btn {
+    border: 2px solid var(--oc-blue-7);
+    border-radius: 2px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--oc-blue-7);
+    cursor: pointer;
+    user-select: none;
+    display: inline-flex;
+}
+
+
+.left .header .header2 {
+    /* border: 1px solid var(--oc-grape-7); */
+    background: white;
+    display: flex;
+    align-items: center;    
+    height: 5rem;    
+}
+
+.left .header .header2 .money{
+    display: flex;
+}
+
+.left .header .header2 .money h2{
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0;
+    color: var(--oc-gray-8);
+}
+
+.left .header .header2 .money input{     
+    
+    color: black;
+    margin-left: 2rem;
+}
+
+.left .header .header2 .hanbang{
+    margin-left: auto;
+    display: flex;
+}
+
+.left .header .header2 .hanbang .btn {
+    border: 2px solid var(--oc-pink-8);
+    border-radius: 2px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--oc-pink-8);
+    cursor: pointer;
+    user-select: none;
+    display: inline-flex;
+    margin-left: 0.25rem;
+}
+
+
+
+
+.left .content {
+    border: 1px solid var(--oc-grape-7);
+    background: var(--oc-blue-5);
+    height: calc(100vh - 12rem);
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+}
