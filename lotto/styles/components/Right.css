@@ -1,0 +1,6 @@
+.right {
+    border: 1px solid var(--oc-grape-7);
+    width: 40%;
+    height: 100vh;
+    margin-left: auto;
+}

@@ -1,33 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>인생 한방</title>
+    <title>Lotto</title>
 
     <!-- base.css -->
-    <link rel="stylesheet" type="text/css" href="styles/base.css"/>    
+    <link rel="stylesheet" type="text/css" href="styles/base.css" />
+
+
     <!-- components.css -->
-    <link rel="stylesheet" type="text/css" href="components/Footer/Footer.css"/>
-    <link rel="stylesheet" type="text/css" href="components/Header/Header.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/components/Header.css" />
+    <link rel="stylesheet" type="text/css" href="styles/components/Footer.css" />
+    <link rel="stylesheet" type="text/css" href="styles/components/Button.css" />
 
     <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <!--Include Header & Footer-->
-    <script src="js/includeHTML.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
 
 </head>
+
 <body>
+    <div class='left'>
+        <!--Header-->
+        <div class='header'>
+            <div class='header-content'>
+                <div class='brand'>
+                    <img class='logo' src="img/lotto1.png">
+                </div>
+                <!-- <div class='middle'>
+                인생 한 방
+            </div> -->
+                <div class='right'>
+                    <div class="button">
+                        오른쪽 토글버튼
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Header-->
 
-    <header include-html="components/Header/index.html"></header>
+        <!--Content-->
+        <h1 style="background: var(--oc-blue-5)">Body</h1>
+        <!--Content-->
+    </div>
+    <div class='right' style="background-image: url('img/lotto2.jpg');">
 
-    <h1 style="background: var(--oc-blue-5)">Body</h1>
-
+    </div>
+    <!-- Footer -->
     <footer include-html="components/Footer/index.html"></footer>
+    <!-- Footer -->
 
-</body>    
-<script>
-    includeHTML();
-</script>
+    <div class='right' style="background-image: url('img/lotto2.jpg'); background: var(--oc-grape-9);">
+
+    </div>
+</body>
+
 </html>

@@ -1,0 +1,21 @@
+@import '../../styles/open-color.css';
+
+.button{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var();
+    cursor: pointer;
+    user-select: none;
+    display: inline-flex;
+
+    background: white;
+
+    border: 2px solid var(--oc-violet-6);
+    border-radius: 2px;
+
+}
+
