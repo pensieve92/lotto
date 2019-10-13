@@ -49,13 +49,12 @@
     padding-bottom: 0.25rem;
 
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     color: var(--oc-blue-7);
     cursor: pointer;
     user-select: none;
     display: inline-flex;
 }
-
 
 .left .header .header2 {
     /* border: 1px solid var(--oc-grape-7); */
@@ -76,8 +75,7 @@
     color: var(--oc-gray-8);
 }
 
-.left .header .header2 .money input{     
-    
+.left .header .header2 .money input{        
     color: black;
     margin-left: 2rem;
 }
@@ -96,7 +94,7 @@
     padding-bottom: 0.25rem;
 
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     color: var(--oc-pink-8);
     cursor: pointer;
     user-select: none;
@@ -104,14 +102,74 @@
     margin-left: 0.25rem;
 }
 
-
-
-
 .left .content {
     border: 1px solid var(--oc-grape-7);
-    background: var(--oc-blue-5);
+    background: white;
     height: calc(100vh - 12rem);
     margin-left: 1rem;
     margin-right: 1rem;
     margin-top: 1rem;
+    
+}
+
+.left .content .result {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 0.5rem;
+    
+    height: auto;
+
+    border-top: 2px dashed var(--oc-gray-8);
+    border-bottom: 2px dashed var(--oc-gray-8);    
+}
+
+.left .content .result .chonwon {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    height: 5rem;
+    width: 450px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.alp{
+    margin-right: 3rem;
+}
+
+.ball {
+    margin: 0;
+    margin-left: 1rem;    
+    border-radius: 50%;    
+    background: var(--oc-red-5);
+    width: 55px;
+    height: 55px;
+    
+    text-align: center;
+    line-height: 55px;
+}
+.abf{
+    height: 5rem;
+    width: 300px;
+    margin: auto;
+    display: flex;
+    align-items: center;    
+}
+
+.abf .btn {
+    border: 2px solid var(--oc-blue-7);
+    border-radius: 2px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--oc-blue-7);
+    cursor: pointer;
+    user-select: none;
 }
