@@ -1,0 +1,59 @@
+.ball01,
+.ball02,
+.ball03,
+.ball04,
+.ball05,
+.ball06,
+.ball07,
+.ball08,
+.ball09,
+.ball10{
+    background: var(--oc-yellow-5);
+}
+
+.ball11,
+.ball12,
+.ball13,
+.ball14,
+.ball15,
+.ball16,
+.ball17,
+.ball18,
+.ball19,
+.ball20{
+    background: var(--oc-blue-5);
+}
+
+.ball21,
+.ball22,
+.ball23,
+.ball24,
+.ball25,
+.ball26,
+.ball27,
+.ball28,
+.ball29,
+.ball30{
+    background: var(--oc-red-5);
+}
+
+.ball31,
+.ball32,
+.ball33,
+.ball34,
+.ball35,
+.ball36,
+.ball37,
+.ball38,
+.ball39,
+.ball40{
+    background: var(--oc-violet-5);
+}
+
+.ball41,
+.ball42,
+.ball43,
+.ball44,
+.ball45{
+    background: var(--oc-green-5);
+}

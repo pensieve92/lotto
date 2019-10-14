@@ -10,7 +10,8 @@
     height: 9rem;
     margin-left: 1rem;
     margin-right: 1rem;
-    margin-top: 1rem;
+    margin-top: 1rem;    
+    /* width: 525px; */
 }
 
 .left .header .header1 {
@@ -103,19 +104,23 @@
 }
 
 .left .content {
-    border: 1px solid var(--oc-grape-7);
+    /* border: 1px solid var(--oc-gray-7); */
     background: white;
     height: calc(100vh - 12rem);
     margin-left: 1rem;
     margin-right: 1rem;
-    margin-top: 1rem;
+    margin-top: 5rem;
     
 }
+.left .content .result-wrap {
+    border: 1px solid var(--oc-gray-8);
+}
 
-.left .content .result {
+
+.left .content .result-wrap .result {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
     
     height: auto;
 
@@ -123,7 +128,7 @@
     border-bottom: 2px dashed var(--oc-gray-8);    
 }
 
-.left .content .result .chonwon {
+.left .content .result-wrap .result .chonwon {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     height: 5rem;
@@ -150,7 +155,10 @@
     
     text-align: center;
     line-height: 55px;
+    color:white;
 }
+
+
 .abf{
     height: 5rem;
     width: 300px;
