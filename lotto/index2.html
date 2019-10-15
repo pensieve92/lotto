@@ -8,12 +8,14 @@
     <title>Lotto</title>
 
     <!-- open-color -->
-    <style>@import 'styles/open-color.css';</style>
+    <style>
+        @import 'styles/open-color.css';
+    </style>
     <!-- base.css -->
-    <link rel="stylesheet" type="text/css" href="styles/base.css" />   
+    <link rel="stylesheet" type="text/css" href="styles/base.css" />
 
     <!-- components.css -->
-    <link rel="stylesheet" type="text/css" href="styles/components/all.css" />   
+    <link rel="stylesheet" type="text/css" href="styles/components/all.css" />
     <link rel="stylesheet" type="text/css" href="styles/components/Right.css" />
     <link rel="stylesheet" type="text/css" href="styles/components/Left.css" />
     <link rel="stylesheet" type="text/css" href="styles/components/Ball.css" />
@@ -33,10 +35,10 @@
 
                 <div class="header1">
                     <div class="logo">
-                        <img src="img/lotto1.png">                        
+                        <img src="img/lotto1.png">
                     </div>
                     <div class="banAuto">
-                        <div class="btn" onclick="banAuto();" value="11">자동</div>
+                        <div class="btn" onclick="banAuto();" value="11">반자동</div>
                     </div>
                 </div>
 
@@ -44,11 +46,11 @@
                 <div class="header2">
                     <div class="money">
                         <h2>전 재산</h2>
-                        <input id='allProperty' type="text">
+                        <input id='allProperty' type="text" value=5000>
                         <h2>원</h2>
                     </div>
                     <div class="hanbang">
-                        <div class="btn">탕진!</div>
+                        <div class="btn" onclick='tangJin()'>탕진!</div>
                         <div class="btn">파!산!</div>
                     </div>
                 </div>
@@ -56,131 +58,148 @@
             </div>
             <div class="content">
                 <div class="result-wrap">
-                <div class="result">
-                    <div class="chonwon">
-                        <div calss="alp">A</div>
-                        <div class="ball ball01">01</div>
-                        <div class="ball ball11">11</div>
-                        <div class="ball ball21">21</div>
-                        <div class="ball ball41">41</div>
-                        <div class="ball ball31">31</div>
-                        <div class="ball ball45">45</div>                        
-                    </div>
-                    <div class="chonwon">
+                    <div class="result">
+                        <div class="chonwon">
+                            <div calss="alp">A</div>
+                            <div class="ball ball01">01</div>
+                            <div class="ball ball11">11</div>
+                            <div class="ball ball21">21</div>
+                            <div class="ball ball41">41</div>
+                            <div class="ball ball31">31</div>
+                            <div class="ball ball45">45</div>
+                        </div>
+                        <div class="chonwon">
                             <div calss="alp">B</div>
                             <div class="ball">01</div>
                             <div class="ball">11</div>
                             <div class="ball">21</div>
                             <div class="ball">41</div>
                             <div class="ball">31</div>
-                            <div class="ball">45</div>  
-                    </div>
-                    <div class="chonwon">
+                            <div class="ball">45</div>
+                        </div>
+                        <div class="chonwon">
                             <div calss="alp">C</div>
                             <div class="ball">01</div>
                             <div class="ball">11</div>
                             <div class="ball">21</div>
                             <div class="ball">41</div>
                             <div class="ball">31</div>
-                            <div class="ball">45</div>  
-                    </div>
-                    <div class="chonwon">
+                            <div class="ball">45</div>
+                        </div>
+                        <div class="chonwon">
                             <div calss="alp">D</div>
                             <div class="ball">01</div>
                             <div class="ball">11</div>
                             <div class="ball">21</div>
                             <div class="ball">41</div>
                             <div class="ball">31</div>
-                            <div class="ball">45</div>  
-                    </div>
-                    <div class="chonwon">
+                            <div class="ball">45</div>
+                        </div>
+                        <div class="chonwon">
                             <div calss="alp" style="margin-right: 6.4px;">E</div>
                             <div class="ball">01</div>
                             <div class="ball">11</div>
                             <div class="ball">21</div>
                             <div class="ball">41</div>
                             <div class="ball">31</div>
-                            <div class="ball">45</div>  
+                            <div class="ball">45</div>
+                        </div>
+                    </div>
+                    <div class="abf">
+                        <div class="btn">
+                            이전
+                        </div>
+                        <div class="btn" style="margin-left: auto;">
+                            다음
+                        </div>
                     </div>
                 </div>
-                <div class="abf">
-                    <div class="btn">
-                        이전
-                    </div>
-                    <div class="btn" style="margin-left: auto;">
-                        다음
-                    </div>
-                </div>
-            </div>
             </div>
         </div>
-        <div class='right'>            
+        <div class='right'>
             <div class="lotto2">
                 <img class='logo' src="img/lotto2.jpg">
             </div>
         </div>
     </div>
     <script>
-        
-
-
         // 자동 & 반자동 선택 (초기값 auto)        
-        function banAuto(){
-            if($('.banAuto .btn').text() == "자동"){
-                 $('.banAuto .btn').text("반자동");            
-             }else if($('.banAuto .btn').text() == "반자동"){
-                 $('.banAuto .btn').text("자동");
+        function banAuto() {
+            if ($('.banAuto .btn').text() == "자동") {
+                $('.banAuto .btn').text("반자동");
+            } else if ($('.banAuto .btn').text() == "반자동") {
+                $('.banAuto .btn').text("자동");
             }
         }
 
         //탕진 버튼 클릭 함수
-        function tangJin(){
-            //전재산 숫자정규식만들기
+        function tangJin() {
+            // 전재산 숫자정규식만들기
             var allPropertyReg = /(^[0-9]*$)/;
             var allProperty = $('#allProperty').val();
-            if(allPropertyReg.test(allProperty)){
+
+            // 전재산 로또 결과
+            var allPropertyLottoResult = new Array();
+            // 로또 숫자배열 - 초기화 용
+            const lottoArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                       11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+                       21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+                       31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+                       41, 42, 43, 44, 45];
+
+            // 서브 로또 숫자배열 
+            const subLottoArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                       11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+                       21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+                       31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+                       41, 42, 43, 44, 45];
+
+            // 숫자 정규식 통과
+            if (allPropertyReg.test(allProperty)) {
                 // 전재산 /1000 의 몫
-                var lottoCnt = parseInt(allProperty/1000);
-                // 로또 숫자배열
-                var lottoArray = [1,2,3,4,5,6,7,8,9,10,
-                                11,12,13,14,15,16,17,18,19,20,
-                                21,22,23,24,25,26,27,28,29,30,
-                                31,32,33,34,35,36,37,38,39,40,
-                                41,42,43,44,45];
+                var lottoCnt = parseInt(allProperty / 1000);
                 // 자동으로 로또 번호 추출
-                if($('.banAuto .btn').text() == "자동"){
-                    //숫자 6개를 랜덤으로 뽑는다
-                    // 로또 숫자배열에서 0 ~ 44 사이의 번호를 1개 선택
-                    var lottoArrayA = new Array();
-                    for(var i=0; i<=5; i++){
-                        var random = Math.floor(Math.random()*(44-i));
-                        var num = lottoArray[random];
-                        // lottoArrayA에 하나씩 담기
-                        lottoArrayA[i] = num;
-                        // 담은 숫자는 전체 로또 숫자배열에서 제거
-                        lottoArray.splice(random,1);
-                    }
-                    // lottoArrayA 오름차순 정렬
-                    lottoArrayA.sort(function(a,b){
-                        return a-b;
-                    })                    
-                    console.log(lottoArrayA);
-                // 반자동을 로또 번호 추출    
-                } else if($('.banAuto .btn').text()=="반자동"){
+                if ($('.banAuto .btn').text() == "반자동") {
+                    //전재산의 /1000 몫 만큼 반복
+                    for (var i = 0; i < lottoCnt; i++) {
+                        // 반복문에서 돌리기 위해 변수 변경 (배열 복사 Reference 방지)
+                        var autoLottoArray = JSON.parse(JSON.stringify(lottoArray));
 
+                        //숫자 6개를 랜덤으로 뽑는다
+                        // 로또 숫자배열에서 0 ~ 44 사이의 번호를 1개 선택
+                        var lottoArrayA = new Array();                        
+                        for (var j = 0; j <= 5; j++) {
+                            var random = Math.floor(Math.random() * (44 - j));
+                            var num = autoLottoArray[random];
+                            // lottoArrayA에 하나씩 담기
+                            lottoArrayA[j] = num;
+                            // 담은 숫자는 전체 로또 숫자배열에서 제거
+                            //autoLottoArray.slice(random, 1);
+                            autoLottoArray.splice(random, 1);
+                        }
+                        // lottoArrayA 오름차순 정렬
+                        lottoArrayA.sort(function (a, b) {
+                            return a - b;
+                        });
+                        console.log(lottoArrayA);   // 한 세트 결과
+                        // 한 세트씩 담기
+                        allPropertyLottoResult[i] = lottoArrayA;
+                    }               
+                    console.log(allPropertyLottoResult); // 전재산 로또 결과
+
+                    // 반자동을 로또 번호 추출    
+                } else if ($('.banAuto .btn').text() == "자동") {
+                    alert('아직 준비중입니다.');
                 }
-
-                
-
-            }else{
+            } else {
                 alert('숫자만 입력하세요')
             }
 
-            
-            
 
 
-            
+
+
+
         }
     </script>
 </body>
