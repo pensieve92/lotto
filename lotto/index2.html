@@ -159,7 +159,38 @@
                 // 배열과 숫자를 받아서 배열을 return 하는 함수 만들기   
                 //  initLottoArray 초기로또번호묶음, invst 투자금
                 function generateLottoNumbers(initLottoArray, invst){
+                    var lottoCnt = parseInt(invst / 1000);
+                    var bundleLotto5 = new Array();
+                    var lottoInvstResult = new Array();
 
+                    for (var i = 0; i < lottoCnt; i++) {
+                        // 반복문에서 돌리기 위해 변수 변경 (배열 복사 Reference 방지) ****************************************
+                        var initLottoArray_Use = JSON.parse(JSON.stringify(initLottoArray));
+                        // 5개씩 묶기 위한 반복문   ???
+
+                        //  if() {}
+                        //숫자 6개를 랜덤으로 뽑는다
+                        // 로또 숫자배열에서 0 ~ 44 사이의 번호를 1개 선택
+                        var lottoArrayA = new Array();                        
+                        for (var j = 0; j < 6; j++) {
+                            var random = Math.floor(Math.random() * (44 - j));
+                            var num = initLottoArray_Use[random];
+                            // lottoArrayA에 하나씩 담기
+                            lottoArrayA[j] = num;
+                            // 담은 숫자는 전체 로또 숫자배열에서 제거
+                            //autoLottoArray.slice(random, 1);
+                            initLottoArray_Use.splice(random, 1);
+                        }
+                        // lottoArrayA 오름차순 정렬
+                        lottoArrayA.sort(function (a, b) {
+                            return a - b;
+                        });
+                        console.log(lottoArrayA);   // 한 세트 결과
+
+                        // 한 세트씩 담기
+                        bundleLotto5[i] = lottoArrayA;
+                    } 
+                    // lottoInvstResult[i/5] = bundleLotto5; ????
                     // lottoInvestmentResult 로또투자결과 map으로 5개씩 잘라서 넣기 {'1' : Array[5], '2': Array[5], '3': Array[3] ...}
                     return lottoInvstResult;
                 }
