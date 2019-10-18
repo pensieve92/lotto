@@ -178,6 +178,9 @@
                 if(lottoCnt > 5){
                     alert("전 재산 6000원 이상은 로또를 할 수 없습니다.");
                     return;                    
+                }else if(lottoCnt < 1){
+                    alert("전 재산 1000원 미만은 로또를 할 수 없습니다.");
+                    $('.ball').remove();
                 }
 
                 // 자동으로 로또 번호 추출
