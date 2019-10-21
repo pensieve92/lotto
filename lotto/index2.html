@@ -76,21 +76,84 @@
                         </div>
                     </div>
                     <div class="abf">
-                        <div class="btn">
+                        <!-- <div class="btn">
                             이전
                         </div>
                         <div class="btn" style="margin-left: auto;">
                             다음
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
         <div class='right'>
-            <div class="lotto2">
-                <img class='logo' src="img/lotto2.jpg">
+            <div class="header"></div>
+            <div class="content">
+                <div class="result-wrap">
+                    <div class="row">
+                        <div class="numBox">01</div>
+                        <div class="numBox">02</div>
+                        <div class="numBox">03</div>
+                        <div class="numBox">04</div>
+                        <div class="numBox">05</div>
+                        <div class="numBox">06</div>
+                        <div class="numBox">07</div>
+                    </div>
+                    <div class="row">
+                        <div class="numBox">08</div>
+                        <div class="numBox">09</div>
+                        <div class="numBox">10</div>
+                        <div class="numBox">11</div>
+                        <div class="numBox">12</div>
+                        <div class="numBox">13</div>
+                        <div class="numBox">14</div>
+                    </div>
+                    <div class="row">
+                        <div class="numBox">15</div>
+                        <div class="numBox">16</div>
+                        <div class="numBox">17</div>
+                        <div class="numBox">18</div>
+                        <div class="numBox">19</div>
+                        <div class="numBox">20</div>
+                        <div class="numBox">21</div>
+                    </div>
+                    <div class="row">
+                        <div class="numBox">22</div>
+                        <div class="numBox">23</div>
+                        <div class="numBox">24</div>
+                        <div class="numBox">25</div>
+                        <div class="numBox">26</div>
+                        <div class="numBox">27</div>
+                        <div class="numBox">28</div>
+                    </div>
+                    <div class="row">
+                        <div class="numBox">29</div>
+                        <div class="numBox">30</div>
+                        <div class="numBox">31</div>
+                        <div class="numBox">32</div>
+                        <div class="numBox">33</div>
+                        <div class="numBox">34</div>
+                        <div class="numBox">35</div>
+                    </div>
+                    <div class="row">
+                        <div class="numBox">36</div>
+                        <div class="numBox">37</div>
+                        <div class="numBox">38</div>
+                        <div class="numBox">39</div>
+                        <div class="numBox">40</div>
+                        <div class="numBox">41</div>
+                        <div class="numBox">42</div>
+                    </div>
+                    <div class="row">
+                        <div class="numBox">43</div>
+                        <div class="numBox">44</div>
+                        <div class="numBox">45</div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+
     </div>
     <script>
         // 자동 & 반자동 선택 (초기값 auto)        
@@ -157,6 +220,8 @@
 
         //탕진 버튼 클릭 함수
         function tangJin() {
+            // ball 지우기 
+            $('.ball').remove();
             // 전재산 숫자정규식만들기
             var allPropertyReg = /(^[0-9]*$)/;
             var allProperty = $('#allProperty').val();
@@ -176,10 +241,10 @@
                 var lottoCnt = parseInt(allProperty / 1000);
 
                 // 로또 갯수 제한 1 ~ 5
-                if(lottoCnt > 5){
+                if (lottoCnt > 5) {
                     alert("전 재산 6000원 이상은 로또를 할 수 없습니다.");
-                    return;                    
-                }else if(lottoCnt < 1){
+                    return;
+                } else if (lottoCnt < 1) {
                     alert("전 재산 1000원 미만은 로또를 할 수 없습니다.");
                     $('.ball').remove();
                 }
