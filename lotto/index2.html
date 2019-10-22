@@ -144,7 +144,7 @@
                         <div class="numBox">41</div>
                         <div class="numBox">42</div>
                     </div>
-                    <div class="row">
+                    <div class="row last-row">
                         <div class="numBox">43</div>
                         <div class="numBox">44</div>
                         <div class="numBox">45</div>
@@ -280,6 +280,26 @@
                 alert('숫자만 입력하세요')
             }
         }
+
+        $(function(){
+            $('.numBox').bind("mousedown",function(event){
+                if(event.which == 1){
+                    // alert("좌클릭 : 번호 " + $(this).text());
+                    $(this).css('background-color', 'var(--oc-red-4)');
+                }else if(event.which == 2){
+                    // alert("휠 클릭 : 번호 " + $(this).text());                    
+                    // $(this).css('background-color', 'white');
+                }else if(event.which == 3){
+                    // 우클릭 메뉴 이벤트 해제
+                    $(document).bind("contextmenu",function(event){
+                        event.preventDefault();
+                    })                    
+                    // alert("우 클릭 : 번호 " + $(this).text());
+                    $(this).css('background-color', 'var(--oc-blue-4)');
+                }
+            })
+        })
+
     </script>
 </body>
 
