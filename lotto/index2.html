@@ -23,8 +23,6 @@
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-
-
 </head>
 
 
@@ -32,7 +30,6 @@
     <div class='all'>
         <div class='left'>
             <div class="header">
-
                 <div class="header1">
                     <div class="logo">
                         <img src="img/lotto1.png">
@@ -41,8 +38,6 @@
                         <div class="btn" onclick="banAuto();" value="11">반자동</div>
                     </div>
                 </div>
-
-
                 <div class="header2">
                     <div class="money">
                         <h2>전 재산</h2>
@@ -54,7 +49,6 @@
                         <div class="btn">파!산!</div>
                     </div>
                 </div>
-
             </div>
             <div class="content">
                 <div class="result-wrap">
@@ -153,7 +147,6 @@
             </div>
         </div>
     </div>
-
     </div>
     <script>
         // 자동 & 반자동 선택 (초기값 auto)        
@@ -217,7 +210,6 @@
             }
         }
 
-
         //탕진 버튼 클릭 함수
         function tangJin() {
             // ball 지우기 
@@ -271,7 +263,6 @@
                     var bundleLotto5_E = bundleLotto5[4];
                     showMeTheLotto("bundleLotto5_E", bundleLotto5_E);
 
-
                     // 반자동을 로또 번호 추출    
                 } else if ($('.banAuto .btn').text() == "자동") {
                     alert('아직 준비중입니다.');
@@ -282,21 +273,37 @@
         }
 
         $(function(){
-            $('.numBox').bind("mousedown",function(event){
+            $('.numBox').bind("mousedown",function(event){                
+               
+                             
+
                 if(event.which == 1){
+                     //클릭 허용 갯수 제한 (빨간색 최대 6개)S                    
+                    if($('.numBox[color="red"]').length > 5){
+                        alert('필수 번호 갯수는 6개 까지입니다.');
+                        return;
+                    }
                     // alert("좌클릭 : 번호 " + $(this).text());
                     $(this).css('background-color', 'var(--oc-red-4)');
+                    $(this).attr('color','red');
+                    // alert($(this).attr('color'))
                 }else if(event.which == 2){
                     // alert("휠 클릭 : 번호 " + $(this).text());                    
                     // $(this).css('background-color', 'white');
                 }else if(event.which == 3){
+                    //클릭 허용 갯수 제한 (파란색 최대 39개)
+                    if($('.numBox[color="blue"]').length > 38){
+                        alert('제외 번호 갯수는 39개 까지입니다.');
+                        return;
+                    }
                     // 우클릭 메뉴 이벤트 해제
                     $(document).bind("contextmenu",function(event){
                         event.preventDefault();
                     })                    
                     // alert("우 클릭 : 번호 " + $(this).text());
+                    $(this).attr('color','blue');
                     $(this).css('background-color', 'var(--oc-blue-4)');
-                }
+                }                
             })
         })
 
