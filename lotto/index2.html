@@ -46,7 +46,7 @@
                     </div>
                     <div class="hanbang">
                         <div class="btn" onclick='tangJin()'>탕진!</div>
-                        <div class="btn">파!산!</div>
+                        <div class="btn" onclick="pasan()">파!산!</div>
                     </div>
                 </div>
             </div>
@@ -170,7 +170,7 @@
                 // 로또 숫자배열에서 0 ~ 44 사이의 번호를 1개 선택
                 var lottoArrayA = new Array();
                 for (var j = 0; j < 6; j++) {
-                    var random = Math.floor(Math.random() * (44 - j));
+                    var random = Math.floor(Math.random() * (initLottoArray.length - j)); // 44 -j >> 45 -j
                     var num = initLottoArray_Use[random];
                     // lottoArrayA에 하나씩 담기
                     lottoArrayA[j] = num;
@@ -265,18 +265,62 @@
 
                     // 반자동을 로또 번호 추출    
                 } else if ($('.banAuto .btn').text() == "자동") {
-                    alert('아직 준비중입니다.');
+                    //빨간번호 갯수 (랜덤으로 뽑을 갯수 : 6-빨간번호 갯수)
+                    // 6 - $('.numBox[color="red"]').length
+
+                    //파란번호 갯수
+                    //파란번호를 빼기 위한 로또 배열 가져오기
+                    var lottoArray_Use = JSON.parse(JSON.stringify(lottoArray));
+                    //파란번호 담기
+                    var blueCnt = $('.numBox[color="blue"]').length
+                    for(var b = 0 ; b < blueCnt ; b++){
+                        console.log($('.numBox[color="blue"]')[b].innerText);
+                        var blueNum = lottoArray_Use.indexOf(parseInt($('.numBox[color="blue"]')[b].innerText));
+                        
+                        lottoArray_Use.splice(blueNum,1);
+                    }
+                    var bundleLotto5 = generateLottoNumbers(lottoArray_Use, allProperty);
+                    console.log(bundleLotto5);
+
+                    // bundleLotto5 0번째 A array
+                    var bundleLotto5_A = bundleLotto5[0];
+                    showMeTheLotto("bundleLotto5_A", bundleLotto5_A);
+                    // bundleLotto5 1번째 B
+                    var bundleLotto5_B = bundleLotto5[1];
+                    showMeTheLotto("bundleLotto5_B", bundleLotto5_B);
+                    // bundleLotto5 2번째 C
+                    var bundleLotto5_C = bundleLotto5[2];
+                    showMeTheLotto("bundleLotto5_C", bundleLotto5_C);
+                    // bundleLotto5 3번째 D
+                    var bundleLotto5_D = bundleLotto5[3];
+                    showMeTheLotto("bundleLotto5_D", bundleLotto5_D);
+                    // bundleLotto5 4번째 E
+                    var bundleLotto5_E = bundleLotto5[4];
+                    showMeTheLotto("bundleLotto5_E", bundleLotto5_E);
+
+               
+
+                    
+
+                    // alert('아직 준비중입니다.');
                 }
             } else {
                 alert('숫자만 입력하세요')
             }
         }
 
-        $(function(){
-            $('.numBox').bind("mousedown",function(event){                
-               
-                             
+        //파산 버튼 클릭 함수
+        function pasan(){
+             // ball 지우기 
+             $('.ball').remove();
 
+            // 클릭 번호 지우기
+            $('.numBox').css('background-color', 'white');
+             $('.numBox').attr('color', "")
+        }
+
+        $(function(){
+            $('.numBox').bind("mousedown",function(event){       
                 if(event.which == 1){
                      //클릭 허용 갯수 제한 (빨간색 최대 6개)S                    
                     if($('.numBox[color="red"]').length > 5){
