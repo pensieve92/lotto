@@ -160,20 +160,26 @@
 
         // 배열과 숫자를 받아서 배열을 return 하는 함수 만들기   
         //  initLottoArray 초기로또번호묶음, invst 투자금
-        function generateLottoNumbers(initLottoArray, invst) {
+        function generateLottoNumbers(initLottoArray, invst, redNumArray = []) {
             var lottoCnt = parseInt(invst / 1000);
-            var bundleLotto5 = new Array();
+            var bundleLotto5 = new Array();       
+           
             for (var i = 0; i < lottoCnt; i++) {
                 // 반복문에서 돌리기 위해 변수 변경 (배열 복사 Reference 방지) ****************************************
                 var initLottoArray_Use = JSON.parse(JSON.stringify(initLottoArray));
                 //숫자 6개를 랜덤으로 뽑는다
                 // 로또 숫자배열에서 0 ~ 44 사이의 번호를 1개 선택
                 var lottoArrayA = new Array();
-                for (var j = 0; j < 6; j++) {
-                    var random = Math.floor(Math.random() * (initLottoArray.length - j)); // 44 -j >> 45 -j
+                for(var j = 0; j < redNumArray.length; j++ ){
+                    lottoArrayA[j] = parseInt(redNumArray[j].innerText);                    
+                }
+                console.log(lottoArrayA);
+                for (var x = 0, k = redNumArray.length; k < 6 ; k++, x++) {
+                    var random = Math.floor(Math.random() * (initLottoArray.length - x)); // 44 -j >> 45 -j
                     var num = initLottoArray_Use[random];
+                    console.log("num" + num);
                     // lottoArrayA에 하나씩 담기
-                    lottoArrayA[j] = num;
+                    lottoArrayA[k] = num;
                     // 담은 숫자는 전체 로또 숫자배열에서 제거
                     //autoLottoArray.slice(random, 1);
                     initLottoArray_Use.splice(random, 1);
@@ -244,8 +250,7 @@
                 // 자동으로 로또 번호 추출
                 if ($('.banAuto .btn').text() == "반자동") {
                     //전재산의 /1000 몫 만큼 반복
-                    var bundleLotto5 = generateLottoNumbers(lottoArray, allProperty);
-                    console.log(bundleLotto5);
+                    var bundleLotto5 = generateLottoNumbers(lottoArray, allProperty);                    
 
                     // bundleLotto5 0번째 A array
                     var bundleLotto5_A = bundleLotto5[0];
@@ -271,16 +276,22 @@
                     //파란번호 갯수
                     //파란번호를 빼기 위한 로또 배열 가져오기
                     var lottoArray_Use = JSON.parse(JSON.stringify(lottoArray));
-                    //파란번호 담기
-                    var blueCnt = $('.numBox[color="blue"]').length
-                    for(var b = 0 ; b < blueCnt ; b++){
-                        console.log($('.numBox[color="blue"]')[b].innerText);
-                        var blueNum = lottoArray_Use.indexOf(parseInt($('.numBox[color="blue"]')[b].innerText));
-                        
+                    //파란번호 담기                    
+                    var blueCnt = $('.numBox[color="blue"]').length;
+                    for(var b = 0 ; b < blueCnt ; b++){                        
+                        var blueNum = lottoArray_Use.indexOf(parseInt($('.numBox[color="blue"]')[b].innerText));                        
                         lottoArray_Use.splice(blueNum,1);
                     }
-                    var bundleLotto5 = generateLottoNumbers(lottoArray_Use, allProperty);
-                    console.log(bundleLotto5);
+                    // 빨간번호를 뺀 결과
+                    // (lottoArray_Use)
+                    var redNumArray = $('.numBox[color="red"]');
+                    var redCnt = $('.numBox[color="red"]').length;
+                    for(var r = 0 ; r < redCnt ; r++){                        
+                        var redNum = lottoArray_Use.indexOf(parseInt($('.numBox[color="red"]')[r].innerText));                        
+                        lottoArray_Use.splice(redNum,1);
+                    }
+                    // 파란번호 결과에 빨간 번호 빼기                    
+                    var bundleLotto5 = generateLottoNumbers(lottoArray_Use, allProperty, redNumArray);
 
                     // bundleLotto5 0번째 A array
                     var bundleLotto5_A = bundleLotto5[0];
