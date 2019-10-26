@@ -149,6 +149,7 @@
     </div>
     </div>
     <script>
+        
         // 자동 & 반자동 선택 (초기값 auto)        
         function banAuto() {
             if ($('.banAuto .btn').text() == "자동") {
@@ -265,7 +266,6 @@
                     // bundleLotto5 4번째 E
                     var bundleLotto5_E = bundleLotto5[4];
                     showMeTheLotto("bundleLotto5_E", bundleLotto5_E);
-
                     // 반자동을 로또 번호 추출    
                 } else if ($('.banAuto .btn').text() == "자동") {
                     //빨간번호 갯수 (랜덤으로 뽑을 갯수 : 6-빨간번호 갯수)
@@ -306,11 +306,6 @@
                     // bundleLotto5 4번째 E
                     var bundleLotto5_E = bundleLotto5[4];
                     showMeTheLotto("bundleLotto5_E", bundleLotto5_E);
-
-               
-
-                    
-
                     // alert('아직 준비중입니다.');
                 }
             } else {
@@ -322,7 +317,6 @@
         function pasan(){
              // ball 지우기 
              $('.ball').remove();
-
             // 클릭 번호 지우기
             $('.numBox').css('background-color', 'white');
              $('.numBox').attr('color', "")
