@@ -172,12 +172,10 @@
                 var lottoArrayA = new Array();
                 for(var j = 0; j < redNumArray.length; j++ ){
                     lottoArrayA[j] = parseInt(redNumArray[j].innerText);                    
-                }
-                console.log(lottoArrayA);
+                }                
                 for (var x = 0, k = redNumArray.length; k < 6 ; k++, x++) {
                     var random = Math.floor(Math.random() * (initLottoArray.length - x)); // 44 -j >> 45 -j
-                    var num = initLottoArray_Use[random];
-                    console.log("num" + num);
+                    var num = initLottoArray_Use[random];                    
                     // lottoArrayA에 하나씩 담기
                     lottoArrayA[k] = num;
                     // 담은 숫자는 전체 로또 숫자배열에서 제거
