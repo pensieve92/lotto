@@ -82,8 +82,12 @@
         </div>
         <div class='right'>
             <div class="header"></div>
-            <div class="content">
-                <div class="result-wrap">
+            <div class="lotto2">
+                    <img class='logo' src="img/lotto2.jpg">
+            </div>
+
+            <div class="content">                
+                <div class="result-wrap" >
                     <div class="row">
                         <div class="numBox">01</div>
                         <div class="numBox">02</div>
@@ -149,7 +153,6 @@
     </div>
     </div>
     <script>
-        
         // 자동 & 반자동 선택 (초기값 auto)        
         function banAuto() {
             if ($('.banAuto .btn').text() == "자동") {
@@ -163,20 +166,20 @@
         //  initLottoArray 초기로또번호묶음, invst 투자금
         function generateLottoNumbers(initLottoArray, invst, redNumArray = []) {
             var lottoCnt = parseInt(invst / 1000);
-            var bundleLotto5 = new Array();       
-           
+            var bundleLotto5 = new Array();
+
             for (var i = 0; i < lottoCnt; i++) {
                 // 반복문에서 돌리기 위해 변수 변경 (배열 복사 Reference 방지) ****************************************
                 var initLottoArray_Use = JSON.parse(JSON.stringify(initLottoArray));
                 //숫자 6개를 랜덤으로 뽑는다
                 // 로또 숫자배열에서 0 ~ 44 사이의 번호를 1개 선택
                 var lottoArrayA = new Array();
-                for(var j = 0; j < redNumArray.length; j++ ){
-                    lottoArrayA[j] = parseInt(redNumArray[j].innerText);                    
-                }                
-                for (var x = 0, k = redNumArray.length; k < 6 ; k++, x++) {
+                for (var j = 0; j < redNumArray.length; j++) {
+                    lottoArrayA[j] = parseInt(redNumArray[j].innerText);
+                }
+                for (var x = 0, k = redNumArray.length; k < 6; k++, x++) {
                     var random = Math.floor(Math.random() * (initLottoArray.length - x)); // 44 -j >> 45 -j
-                    var num = initLottoArray_Use[random];                    
+                    var num = initLottoArray_Use[random];
                     // lottoArrayA에 하나씩 담기
                     lottoArrayA[k] = num;
                     // 담은 숫자는 전체 로또 숫자배열에서 제거
@@ -249,7 +252,7 @@
                 // 자동으로 로또 번호 추출
                 if ($('.banAuto .btn').text() == "반자동") {
                     //전재산의 /1000 몫 만큼 반복
-                    var bundleLotto5 = generateLottoNumbers(lottoArray, allProperty);                    
+                    var bundleLotto5 = generateLottoNumbers(lottoArray, allProperty);
 
                     // bundleLotto5 0번째 A array
                     var bundleLotto5_A = bundleLotto5[0];
@@ -276,17 +279,17 @@
                     var lottoArray_Use = JSON.parse(JSON.stringify(lottoArray));
                     //파란번호 담기                    
                     var blueCnt = $('.numBox[color="blue"]').length;
-                    for(var b = 0 ; b < blueCnt ; b++){                        
-                        var blueNum = lottoArray_Use.indexOf(parseInt($('.numBox[color="blue"]')[b].innerText));                        
-                        lottoArray_Use.splice(blueNum,1);
+                    for (var b = 0; b < blueCnt; b++) {
+                        var blueNum = lottoArray_Use.indexOf(parseInt($('.numBox[color="blue"]')[b].innerText));
+                        lottoArray_Use.splice(blueNum, 1);
                     }
                     // 빨간번호를 뺀 결과
                     // (lottoArray_Use)
                     var redNumArray = $('.numBox[color="red"]');
                     var redCnt = $('.numBox[color="red"]').length;
-                    for(var r = 0 ; r < redCnt ; r++){                        
-                        var redNum = lottoArray_Use.indexOf(parseInt($('.numBox[color="red"]')[r].innerText));                        
-                        lottoArray_Use.splice(redNum,1);
+                    for (var r = 0; r < redCnt; r++) {
+                        var redNum = lottoArray_Use.indexOf(parseInt($('.numBox[color="red"]')[r].innerText));
+                        lottoArray_Use.splice(redNum, 1);
                     }
                     // 파란번호 결과에 빨간 번호 빼기                    
                     var bundleLotto5 = generateLottoNumbers(lottoArray_Use, allProperty, redNumArray);
@@ -314,46 +317,62 @@
         }
 
         //파산 버튼 클릭 함수
-        function pasan(){
-             // ball 지우기 
-             $('.ball').remove();
+        function pasan() {
+            // ball 지우기 
+            $('.ball').remove();
             // 클릭 번호 지우기
             $('.numBox').css('background-color', 'white');
-             $('.numBox').attr('color', "")
+            $('.numBox').attr('color', "")
         }
 
-        $(function(){
-            $('.numBox').bind("mousedown",function(event){       
-                if(event.which == 1){
-                     //클릭 허용 갯수 제한 (빨간색 최대 6개)S                    
-                    if($('.numBox[color="red"]').length > 5){
+        $(function () {
+            $('.numBox').bind("mousedown", function (event) {
+                if (event.which == 1) {
+                    //클릭 허용 갯수 제한 (빨간색 최대 6개)S                    
+                    if ($('.numBox[color="red"]').length > 5) {
                         alert('필수 번호 갯수는 6개 까지입니다.');
                         return;
                     }
                     // alert("좌클릭 : 번호 " + $(this).text());
                     $(this).css('background-color', 'var(--oc-red-4)');
-                    $(this).attr('color','red');
+                    $(this).attr('color', 'red');
                     // alert($(this).attr('color'))
-                }else if(event.which == 2){
+                } else if (event.which == 2) {
                     // alert("휠 클릭 : 번호 " + $(this).text());                    
                     // $(this).css('background-color', 'white');
-                }else if(event.which == 3){
+                } else if (event.which == 3) {
                     //클릭 허용 갯수 제한 (파란색 최대 39개)
-                    if($('.numBox[color="blue"]').length > 38){
+                    if ($('.numBox[color="blue"]').length > 38) {
                         alert('제외 번호 갯수는 39개 까지입니다.');
                         return;
                     }
                     // 우클릭 메뉴 이벤트 해제
-                    $(document).bind("contextmenu",function(event){
+                    $(document).bind("contextmenu", function (event) {
                         event.preventDefault();
-                    })                    
+                    })
                     // alert("우 클릭 : 번호 " + $(this).text());
-                    $(this).attr('color','blue');
+                    $(this).attr('color', 'blue');
                     $(this).css('background-color', 'var(--oc-blue-4)');
-                }                
+                }
             })
         })
 
+        //자동 반자동 버튼클릭
+        $(function(){
+            $('.banAuto .btn').on('click', function(){
+                if($(this).text() == "반자동"){
+                    $('.right .lotto2').css('display', 'block');
+                    $('.right .content').css('display', 'none');
+                    // 클릭 번호 지우기
+                    $('.numBox').css('background-color', 'white');
+                    $('.numBox').attr('color', "")
+                }
+                if($(this).text() == "자동"){
+                    $('.right .content').css('display', 'block');
+                    $('.right .lotto2').css('display', 'none');
+                }
+            })
+        })
     </script>
 </body>
 
