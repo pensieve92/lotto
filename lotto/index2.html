@@ -85,6 +85,7 @@
                 후원 : 전병현<br>
                 농협 :  302 - 1317 - 1916 - 61
                 
+                
             </div>
             <div class="lotto2">
                     <img class='logo' src="img/lotto2.jpg">
@@ -152,9 +153,9 @@
                         <div class="numBox">45</div>
                     </div>
                     <div class="row last-row">
-                        좌클릭 : 필수 번호
+                        좌클릭 : 제외 번호  
                         <br>
-                        우클릭 : 제외 번호                        
+                        우클릭 : 필수 번호                      
                     </div>
                 </div>
             </div>
@@ -336,20 +337,7 @@
 
         $(function () {
             $('.numBox').bind("mousedown", function (event) {
-                if (event.which == 1) {
-                    //클릭 허용 갯수 제한 (빨간색 최대 6개)S                    
-                    if ($('.numBox[color="red"]').length > 5) {
-                        alert('필수 번호 갯수는 6개 까지입니다.');
-                        return;
-                    }
-                    // alert("좌클릭 : 번호 " + $(this).text());
-                    $(this).css('background-color', 'var(--oc-red-4)');
-                    $(this).attr('color', 'red');
-                    // alert($(this).attr('color'))
-                } else if (event.which == 2) {
-                    // alert("휠 클릭 : 번호 " + $(this).text());                    
-                    // $(this).css('background-color', 'white');
-                } else if (event.which == 3) {
+                if (event.which == 1) {                    
                     //클릭 허용 갯수 제한 (파란색 최대 39개)
                     if ($('.numBox[color="blue"]').length > 38) {
                         alert('제외 번호 갯수는 39개 까지입니다.');
@@ -362,6 +350,22 @@
                     // alert("우 클릭 : 번호 " + $(this).text());
                     $(this).attr('color', 'blue');
                     $(this).css('background-color', 'var(--oc-blue-4)');
+                   
+                } else if (event.which == 2) {
+                    // alert("휠 클릭 : 번호 " + $(this).text());                    
+                    // $(this).css('background-color', 'white');
+                } else if (event.which == 3) {
+                     //클릭 허용 갯수 제한 (빨간색 최대 6개)S                    
+                     if ($('.numBox[color="red"]').length > 5) {
+                        alert('필수 번호 갯수는 6개 까지입니다.');
+                        return;
+                    }
+                    // alert("좌클릭 : 번호 " + $(this).text());
+                    $(this).css('background-color', 'var(--oc-red-4)');
+                    $(this).attr('color', 'red');
+                    // alert($(this).attr('color'))    
+
+
                 }
             })
         })
